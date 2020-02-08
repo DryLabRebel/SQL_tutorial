@@ -1,0 +1,61 @@
+Postgres documentation - Beginners tutorial
+===========================================
+
+2.7 Aggregate functions and subqueries
+--------------------------------------
+
+```{sql}
+
+SELECT city, temp_lo  -- Get me the city, and the temperature values
+    FROM weather 
+	WHERE temp_lo = 
+	    (SELECT max(temp_lo) FROM weather)	-- subquery, so it will evaluate the subquery, and output the desired value, and return the row which reports a 'T' for the given value
+;
+
+```
+
+Operations on aggregate functions
+
+```{sql}
+
+SELECT city, max(temp_lo)
+    FROM weather
+    GROUP BY city
+    HAVING max(temp_lo) < 40;
+
+```
+
+Pattern matching, using the like operator
+
+```{sql}
+
+SELECT city, max(temp_lo)
+    FROM weather
+    WHERE city LIKE 'S%'            -- (1) Equvalent to '*' in standard Regex
+    GROUP BY city
+    HAVING max(temp_lo) < 40;
+
+```
+
+```{sql}
+
+UPDATE weather
+    SET temp_hi = temp_hi - 2, temp_lo = temp_lo -2
+    WHERE date > '1994-11-28';
+
+```
+
+```{sql}
+
+DELETE FROM weather 
+    WHERE city = 'Hayward';
+
+```
+
+*BEWARE of: DELETE FROM **tablename**!*
+
+***# ----------------------- # ----------------------- # ----------------------- # ---------------------- # ---------------------- # ----------------------***
+***Without a qualification, DELETE will remove ALL rows from the given table, leaving it empty. The system will not request confirmation before doing this!***
+***# ----------------------- # ----------------------- # ----------------------- # ---------------------- # ---------------------- # ----------------------***
+
+---

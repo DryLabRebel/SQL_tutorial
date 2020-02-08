@@ -1,0 +1,16 @@
+Postgres documentation - Beginners tutorial
+===========================================
+
+2.8 Updates
+-----------
+
+```{sql}
+
+UPDATE weather
+    SET temp_hi = temp_hi - 2,  temp_lo = temp_lo - 2
+    WHERE date > '1994-11-28';
+
+```
+
+[//]: # ( Apparently I already learned this a few days ago, when I  found my typo.. )
+

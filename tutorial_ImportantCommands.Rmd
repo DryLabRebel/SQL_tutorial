@@ -1,0 +1,47 @@
+Postgres documentation - Beginners tutorial
+===========================================
+
+Important SQL Clauses
+---------------------
+
+```{sql}
+
+SELECT
+FROM
+WHERE
+GROUP BY
+ORDER BY
+HAVING
+LIKE
+UPDATE
+DELETE
+
+BEGIN
+COMMIT
+SAVEPOINT
+ROLLBACK
+
+OVER
+PARTITION BY
+
+-- What's the difference between syntax highlighting? What groups them together?
+
+
+-- Aggregate functions
+
+min()
+max()
+sum()
+avg()
+rank()
+
+```
+
+`WHERE` selects input rows before groups and aggregates are computed (thus, it controls which rows go into the aggregate computation), 
+whereas `HAVING` selects group rows after groups and aggregates are computed.
+
+Is it bad practise to simply use `table weather;` to view a table, instead of `SELECT * FROM weather;`
+
+
+
+

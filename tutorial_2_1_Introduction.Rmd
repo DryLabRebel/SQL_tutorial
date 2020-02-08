@@ -1,0 +1,77 @@
+Postgres documentation - Beginners tutorial
+===========================================
+
+2.1 Introduction
+----------------
+
+SQL Notes
+
+    /usr/local/bin/
+
+Is the location on this MacBook, of the postgres executables, including the ones below
+
+```{sql}
+
+CREATEDB mydb
+
+```
+
+Creates a database in postgres
+
+```{sql}
+
+DROPDB mydb
+
+```
+
+(For this command, the database name does not default to the user account name. You always need to specify it.) This action physically removes all files associated with the database and cannot be undone, so this should only be done with a great deal of forethought.
+
+where is .../src/tutorial ? It's on github: https://github.com/postgres/postgres/tree/master/src/tutorial
+
+    file:///usr/local/Cellar/postgresql/12.1/share/doc/postgresql/html/tutorial.html
+
+Is the local version of the online postgreSQL tutorial.
+
+But I haven't figured out how to clone just the directory, and not the entire postgres repository. Might be a good job for a rainy day.
+
+```{sql}
+
+psql mydb
+
+```
+
+---
+
+Important SQL Clauses
+---------------------
+
+```{sql}
+
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+LIKE
+UPDATE
+DELETE
+
+-- What's the difference between syntax highlighting? What groups them together?
+
+
+-- Aggregate functions
+
+min()
+max()
+sum()
+avg()
+
+```
+
+`WHERE` selects input rows before groups and aggregates are computed (thus, it controls which rows go into the aggregate computation), 
+whereas `HAVING` selects group rows after groups and aggregates are computed.
+
+Is it bad practise to simply use `table weather;` to view a table, instead of `SELECT * FROM weather;`
+
+
+

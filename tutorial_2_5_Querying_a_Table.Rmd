@@ -1,0 +1,79 @@
+Postgres documentation - Beginners tutorial
+===========================================
+
+2.5 Querying a Table
+--------------------
+
+SELECT -- Is the SQL query command, extremely important, flagship command.
+
+The `*` is shorthand for 'all'. So,
+
+```{sql}
+
+SELECT * FROM weather;
+
+```
+
+Will select all columns from weather.
+
+```{sql}
+
+SELECT city, temp_lo, temp_hi, prcp, date FROM weather;
+
+```
+
+Will also select all columns from weather.
+
+table weather;
+
+As I have surmised will also select all columns from weather. Dangerous if you're working with large datasets.
+
+```{sql}
+
+SELECT -- can also take expressions.
+
+```
+
+```{sql}
+
+SELECT city, (temp_lo+temp_hi)/2 AS temp_avg, date FROM weather;
+
+```
+
+*Note: it keeps a record of my command history, even after I close the session, and log back in!*
+
+```{sql}
+
+SELECT * FROM weather
+	ORDER BY city;
+
+```
+
+```{sql}
+
+SELECT * FROM weather
+	ORDER BY city, temp_lo;
+
+```
+
+Will do exactly what it sounds like it will do.
+
+```{sql}
+
+SELECT DISTINCT city
+	FROM weather;
+
+```
+
+Will select unique entries from the city column, but the order may be unreliable. use:
+
+```{sql}
+
+SELECT DISTINCT city
+	FROM weather
+	ORDER BY city;
+
+```
+
+For more predictable results.
+

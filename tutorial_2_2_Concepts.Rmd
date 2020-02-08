@@ -1,0 +1,20 @@
+Postgres documentation - Beginners tutorial
+===========================================
+
+2.2 Concepts
+------------
+
+Starts a postgres console session with the database `mydb` 
+
+SQL - Relational Database Management System
+
+Unix file system - Heirarchical Database
+
+Each row has the same number of named columns, each column is of a single data type.
+
+SQL is white space agnostic
+
+colon `;` signifies the end of a command
+
+double dash `--` is a comment
+

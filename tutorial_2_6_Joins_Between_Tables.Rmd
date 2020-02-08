@@ -1,0 +1,114 @@
+Postgres documentation - Beginners tutorial
+===========================================
+
+2.6 Joins
+---------
+
+This will join two tables together, and will select all columns in cases where 'city' from 'weather', matches 'name' from 'cities' table (try not to get confused about that).
+
+```{sql}
+
+SELECT *                                           
+	FROM weather, cities
+	WHERE city = name;
+
+```
+
+However, this will truncate the table taking only matching rows.
+Furthermore this will show all available columns, including matching columns.
+This:
+
+```{sql}
+
+SELECT city, temp_lo, temp_hi, prcp, date, location
+	FROM weather, cities
+	WHERE city = name;
+
+```
+
+Will only show the columns you want.
+
+-
+
+Also, I found a typo in one of my names 'San Fransisco'... so I  figured out how to change it:
+
+```{sql}
+
+UPDATE weather
+	SET city = REPLACE(city, 'Fransisco', 'Francisco')
+	WHERE city LIKE ('%Fransisco');
+
+```
+
+*Noice*
+
+-
+
+Note, in the SELECT command above, it works because all columns in both tables have unique names.
+
+If there are columns with the same name in both tables, you need to specify those columns specifically.
+
+```{sql}
+
+SELECT weather.city, weather.temp_lo, cities.location
+	FROM weather, cities
+	WHERE city = name;
+
+```
+
+etc.
+
+***Best practise***: Always qualify each row name with the corresponding table (as above), in a join, unless you have a reason not to, incase duplicates arise at a later date.
+
+Note: Rmarkdown supports heaps of languages!! Including SQL
+
+[//]: # ( No syntax highlighting for sql code? )
+
+Joining tables can also be expressed in this form:
+
+```{sql}
+
+SELECT *
+    FROM weather INNER JOIN cities ON (weather.city = cities.name);
+
+```
+
+If you want to keep the extra rows from weather:
+
+```{sql}
+
+SELECT *
+    FROM weather LEFT OUTER JOIN cities ON (weather.city = cities.name);
+
+```
+
+```{sql}
+
+SELECT 
+    W1.city,  -- Take 'city' from W1 (which doesn't exist yet?
+    W1.temp_lo AS low,	-- Take 'temp_lo' from W1 and label it 'low'
+    W1.temp_hi AS high,	-- Take 'temp_hi' from W1 and label it 'high'
+    W2.city,  -- Take 'city' from W1 (which doesn't exist yet?
+    W2.temp_lo AS low,	-- Take 'temp_lo' from W2 and label it 'low'
+    W2.temp_hi AS high	-- Take 'temp_hi' from W2 and label it 'high'
+    FROM weather W1, weather W2	-- *Does this 'create' W1 and W2?* It would appear so
+    WHERE W1.temp_lo < W2.temp_lo
+    AND W1.temp_hi > W2.temp_hi;
+
+```
+
+So it also appears that the interpreter accepts the statement as a block, parses it, and executes the relevant code in the correct sequence
+
+This kind of abbreviating is apparently common, so keep an eye out for it.
+
+another example:
+
+
+```{sql}
+
+SELECT *
+    FROM weather w, cities c
+    WHERE w.city = c.name;
+
+```
+

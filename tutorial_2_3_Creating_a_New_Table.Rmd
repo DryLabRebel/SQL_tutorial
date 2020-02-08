@@ -1,0 +1,37 @@
+Postgres documentation - Beginners tutorial
+===========================================
+
+2.3 Creating a table
+--------------------
+
+```{sql}
+
+CREATE TABLE weather (
+    city            varchar(80),
+    temp_lo         int,           -- low temperature
+    temp_hi         int,           -- high temperature
+    prcp            real,          -- precipitation
+    date            date
+    );
+
+```
+
+`varchar(80)` specifies a data type that can store arbitrary character strings up to 80 characters in length"
+
+PostgreSQL supports the standard SQL types int, smallint, real, double precision, char(N), varchar(N), date, time, timestamp, and interval, as well as other types of general utility and a rich set of geometric types
+
+--postgres accepts an arbitrary number of user defined data types
+
+```{sql}
+
+CREATE TABLE cities (
+    name      varchar(80),
+    location  point
+);
+
+DROP TABLE tablename;
+
+```
+
+Will delete your table. Seems dangerous!
+
