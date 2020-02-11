@@ -206,7 +206,19 @@ CREATE TABLE capitals (
   state char(2)
 ) INHERITS (cities);
 
+SELECT name, altitude
+  FROM cities
+  WHERE altitude > 500;
+
+SELECT name, altitude
+  FROM ONLY cities
+  WHERE altitude > 500;
+
 ```
+
+Inheritance is a powerful tool, but has not yet been integrated with other SQL functions, such as unique contraints and foreign keys.
+
+See [here](file:///usr/local/Cellar/postgresql/12.1/share/doc/postgresql/html/ddl-inherit.html) for more detail on inheritance.
 
 [//]: # ( OK, I seriously need to just start creating random tables, and start quickly figuring how to add rows )
 

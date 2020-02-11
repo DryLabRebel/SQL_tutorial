@@ -24,8 +24,9 @@ ROLLBACK
 OVER
 PARTITION BY
 
--- What's the difference between syntax highlighting? What groups them together?
+ONLY -- Used for Inheritance, select the following from only the named table, and ignore the rest in the inheritance heirarchy
 
+-- What's the difference between syntax highlighting? What groups them together?
 
 -- Aggregate functions
 
