@@ -1,9 +1,0 @@
-
-SQL documentation
-=================
-
-Chapter 4
----------
-
-
-
