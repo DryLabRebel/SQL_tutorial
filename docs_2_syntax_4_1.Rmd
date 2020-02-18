@@ -16,6 +16,8 @@ A lot of the standard fare about keywords, identifiers and strings.
 
 I like how it touches on the use of hexadecimal codes. So what are the hexadecimal codes for alphanumeric digits?
 
+What are the uses for hexadecimal? Is it faster? Is it better for automation?
+
 Unicode strings are preceded with 'U&', for example:
 
 ```{sql}
