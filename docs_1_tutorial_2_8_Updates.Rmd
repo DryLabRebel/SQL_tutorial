@@ -12,5 +12,5 @@ UPDATE weather
 
 ```
 
-[//]: # ( Apparently I already learned this a few days ago, when I  found my typo.. )
+[//]: # ( Apparently I already learned this a few days ago, when I found my typo.. )
 
