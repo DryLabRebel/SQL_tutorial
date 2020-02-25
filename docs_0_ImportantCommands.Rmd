@@ -41,7 +41,7 @@ rank()
 `WHERE` selects input rows before groups and aggregates are computed (thus, it controls which rows go into the aggregate computation), 
 whereas `HAVING` selects group rows after groups and aggregates are computed.
 
-Is it bad practise to simply use `table weather;` to view a table, instead of `SELECT * FROM weather;`
+Is it bad practise to simply use `table weather;` to view a table, instead of `SELECT * FROM weather;`?
 
 ```{sql}
 
